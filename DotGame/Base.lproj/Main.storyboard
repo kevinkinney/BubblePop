@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Game View Controller-->
+        <scene sceneID="tXr-a1-R10">
+            <objects>
+                <viewController id="BV1-FR-VrT" customClass="GameViewController" customModule="DotGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
+                    </view>
+                    <connections>
+                        <segue destination="RKS-4H-9dK" kind="presentation" identifier="showScoreboardSegue" modalPresentationStyle="fullScreen" id="j65-EH-oi2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--Scoreboard Controller-->
+        <scene sceneID="X5e-9g-pqF">
+            <objects>
+                <tableViewController id="RKS-4H-9dK" customClass="ScoreboardController" customModule="DotGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="l7k-Bg-ufS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="Geb-gP-M1B">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <items>
+                                <navigationItem title="Leaderboard" id="BL4-jl-a40">
+                                    <barButtonItem key="rightBarButtonItem" systemItem="done" id="CpU-K8-3fd">
+                                        <connections>
+                                            <action selector="dismissScoreboard" destination="RKS-4H-9dK" id="NjP-9d-g4u"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </navigationItem>
+                            </items>
+                        </navigationBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="GameScoreTableViewCell" id="msQ-bZ-9VH" customClass="GameScoreTableViewCell" customModule="DotGame" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="99.5" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="msQ-bZ-9VH" id="LfA-FP-jqn">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8D-ba-jQU">
+                                            <rect key="frame" x="20" y="11.5" width="50" height="20.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="50" id="zRa-cE-NiO"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBa-0h-6aV">
+                                            <rect key="frame" x="80" y="11" width="45" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uc3-fH-ACc">
+                                            <rect key="frame" x="310.5" y="11.5" width="44.5" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="IBa-0h-6aV" secondAttribute="trailing" constant="20" symbolic="YES" id="CGC-Oy-O7v"/>
+                                        <constraint firstItem="F8D-ba-jQU" firstAttribute="centerY" secondItem="LfA-FP-jqn" secondAttribute="centerY" id="UNx-72-iXl"/>
+                                        <constraint firstAttribute="trailing" secondItem="uc3-fH-ACc" secondAttribute="trailing" constant="20" id="ZR6-tK-5Fc"/>
+                                        <constraint firstItem="uc3-fH-ACc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="LfA-FP-jqn" secondAttribute="leading" constant="20" symbolic="YES" id="g3a-Bz-dAc"/>
+                                        <constraint firstItem="F8D-ba-jQU" firstAttribute="leading" secondItem="LfA-FP-jqn" secondAttribute="leading" constant="20" id="hVk-HE-Kvp"/>
+                                        <constraint firstItem="IBa-0h-6aV" firstAttribute="centerY" secondItem="LfA-FP-jqn" secondAttribute="centerY" id="itM-el-qRJ"/>
+                                        <constraint firstItem="uc3-fH-ACc" firstAttribute="centerY" secondItem="LfA-FP-jqn" secondAttribute="centerY" id="jYC-FO-dLW"/>
+                                        <constraint firstItem="IBa-0h-6aV" firstAttribute="leading" secondItem="F8D-ba-jQU" secondAttribute="trailing" constant="10" id="rpV-JC-Bw8"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="IBa-0h-6aV" id="gN3-nz-Dhe"/>
+                                    <outlet property="rankLabel" destination="F8D-ba-jQU" id="Iil-R6-GSn"/>
+                                    <outlet property="scoreLabel" destination="uc3-fH-ACc" id="ud4-ic-3xD"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="RKS-4H-9dK" id="gYQ-dG-doc"/>
+                            <outlet property="delegate" destination="RKS-4H-9dK" id="HEH-kh-rUr"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yqk-kE-ffz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1152.8" y="32.833583208395808"/>
+        </scene>
+    </scenes>
+</document>
